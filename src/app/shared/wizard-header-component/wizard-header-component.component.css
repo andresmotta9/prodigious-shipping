@@ -1,0 +1,16 @@
+.wizard-label {
+    font: 600 1.5em/1 'Raleway', sans-serif;
+    color: rgba(0,0,0,.5);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    position: initial;;
+    top: 5%;
+    width: 100%;
+}
+
+.progress {
+    margin-top: 20px;
+    top: 10%;
+    width: 100%;
+}

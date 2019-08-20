@@ -1,6 +1,26 @@
-<div class="row">
-    <div class="col">
-      <label>Shipping Label Maker</label>
-      <progressbar [animate]="false" [value]="progress" type="success">{{progress}}%</progressbar>
+<app-wizard-component (complete)="showDetail($event)" [wizardContext]="wizardContext">
+    <app-wizard-header-component class="header"></app-wizard-header-component>
+    <app-wizard-step class="body">
+        <app-person-address title='sender´s'></app-person-address>
+    </app-wizard-step>
+    <app-wizard-step class="body">
+        <app-person-address title='receiver´s'></app-person-address>
+    </app-wizard-step>
+    <app-wizard-step class="body">
+        <app-shipping-weight></app-shipping-weight>
+    </app-wizard-step>
+    <app-wizard-step class="body">
+        <app-shipping-option></app-shipping-option>
+    </app-wizard-step>
+    <app-wizard-step class="body">
+        <app-shipping-confirm confirm="true"></app-shipping-confirm>
+    </app-wizard-step>
+</app-wizard-component>
+<div *ngIf="stepsDone">
+    <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>you successfully complete the shipping label maker.</p>
     </div>
+    <app-shipping-confirm [confirm]="false" visibility="true" [wizardContext]="wizardContext"></app-shipping-confirm>
 </div>
+

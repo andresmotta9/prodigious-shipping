@@ -1,0 +1,51 @@
+<div class="row" *ngIf="visibility">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+          <h4>Sender's information</h4>
+          <label>Name    : {{wizardContext.from.name}}</label>
+          <br>
+          <label>Street  : {{wizardContext.from.street}}</label>
+          <br>
+          <label>City    : {{wizardContext.from.city}}</label>
+          <br>
+          <label>State   : {{wizardContext.from.state}}</label>
+          <br>
+          <label>Zip     : {{wizardContext.from.zip}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h4>Receiver's information</h4>
+        <label>Name    : {{wizardContext.to.name}}</label>
+        <br>
+        <label>Street  : {{wizardContext.to.street}}</label>
+        <br>
+        <label>City    : {{wizardContext.to.city}}</label>
+        <br>
+        <label>State   : {{wizardContext.to.state}}</label>
+        <br>
+        <label>Zip     : {{wizardContext.to.zip}}</label>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h4>Shipping details</h4>
+        <label>Weight          : {{wizardContext.weight}} pounds</label>
+        <br>
+        <label>ShippingOption  : {{wizardContext.shippingOption | enumoption: shippingOption}}</label>
+        <br>
+        <label><span style="font-weight:bold">ShippingCost   : {{getCost()}} USD</span></label>
+      </div>
+    </div>
+    <br>
+    <div *ngIf="confirm">
+      <button type="button" class="btn btn-warning btn-lg col-sm-5 mr-2" (click) ="onAction(wizardAction[wizardAction.Prev])">Previous</button>
+      <button type="button" class="btn btn-success btn-lg col-sm-5" (click) ="onAction(wizardAction[wizardAction.End])">Confirm</button>
+    </div>
+  </div>
+</div>

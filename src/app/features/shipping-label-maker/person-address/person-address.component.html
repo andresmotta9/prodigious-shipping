@@ -1,0 +1,75 @@
+<form *ngIf="visibility" [formGroup]="form" (ngSubmit)="onAction()" class="main-container">
+  <h4>Enter the {{title}} address</h4>
+  <br>
+  <div class="form-group" [ngClass]="{ 'has-danger': !form.get('name').valid}">
+    <label for="name">Name</label>
+    <input class="form-control" 
+            name="name"
+            formControlName="name"
+            type="text"
+            placeholder="Name">
+    <div *ngIf="form.controls['name'].errors?.required">
+      required field.
+    </div>
+    <div *ngIf="form.controls['name'].errors?.minlength">
+      it must contain {{ form.controls['name'].errors.minlength.requiredLength }} characters. 
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{ 'has-danger': !form.get('street').valid}">
+    <label for="street">Street</label>
+    <input class="form-control"
+              name="street"
+              formControlName="street"
+              type="text"
+              placeholder="Street">
+    <div *ngIf="form.controls['street'].errors?.required">
+      required field.
+    </div>
+    <div *ngIf="form.controls['street'].errors?.minlength">
+      it must contain {{ form.controls['street'].errors.minlength.requiredLength }} characters. 
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6" [ngClass]="{ 'has-danger': !form.get('city').valid}">
+      <label for="city">City</label>
+      <input class="form-control" 
+              name="city"
+              formControlName="city"
+              type="text"
+              placeholder="City">
+      <div *ngIf="form.controls['city'].errors?.required">
+        required field.
+      </div>
+      <div *ngIf="form.controls['city'].errors?.minlength">
+        it must contain {{ form.controls['city'].errors.minlength.requiredLength }} characters. 
+      </div>
+    </div>
+    <div class="form-group col-md-4" [ngClass]="{ 'has-danger': !form.get('state').valid}">
+      <label for="inputState">State</label>
+      <input class="form-control"
+              name="state"
+              formControlName="state"
+              type="text"
+              placeholder="State">
+        <div *ngIf="form.controls['state'].errors?.required">
+          required field.
+        </div>
+        <div *ngIf="form.controls['state'].errors?.minlength">
+          it must contain {{ form.controls['state'].errors.minlength.requiredLength }} characters. 
+        </div>
+    </div>
+    <div class="form-group col-md-2" [ngClass]="{ 'has-danger': !form.get('zip').valid}">
+      <label for="inputZip">Zip</label>
+      <input class="form-control"
+              name="zip"
+              formControlName="zip"
+              type="text"
+              placeholder="Zip">
+      <div *ngIf="form.controls['zip'].errors?.required">
+        required field.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-warning col-1 mr-2" (click) ="onAction(wizardAction[wizardAction.Prev])">Previous</button>
+  <button type="submit" class="btn btn-primary col-1" [disabled]="!form.valid"> Next </button>
+</form>

@@ -1,0 +1,22 @@
+<form *ngIf="visibility"(ngSubmit)="onAction()" [formGroup]="form" class="main-container">
+    <h4>Enter the shipping weight</h4>
+    <br>
+    <div class="form-group" [ngClass]="{ 'has-danger': !form.get('weight').valid}">
+      <label for="weight">Weight</label>
+      <input class="form-control"
+              name="weight"
+              formControlName="weight"
+              type="number"
+              placeholder="Weight">      
+      <div *ngIf="form.controls['weight'].errors?.required">
+        required field.
+      </div>
+      <div *ngIf="form.controls['weight'].errors?.min">
+          Please type a valid weight
+      </div>
+      </div>
+    <button class="btn btn-warning col-1 mr-2" (click) = "onAction(wizardAction[wizardAction.Prev])">Previous</button>
+    <button type="submit" class="btn btn-primary col-1">Next</button>
+  </form>
+        
+      

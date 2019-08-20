@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Shipping } from 'src/app/models/Shipping';
 
 @Component({
   selector: 'app-shipping-label-maker',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShippingLabelMakerComponent implements OnInit {
 
-  progress: number = 50;
+  public wizardContext: Shipping = new Shipping();
+  public stepsDone: Boolean = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showDetail( event: Shipping) {
+    this.wizardContext = event;
+    this.stepsDone = true;
   }
 }

@@ -1,0 +1,8 @@
+.login {
+    margin-top: 20vh;
+    margin-left: 50vh;
+}
+
+.ng-invalid.ng-touched:not(form){
+    border: 1px solid red;
+}

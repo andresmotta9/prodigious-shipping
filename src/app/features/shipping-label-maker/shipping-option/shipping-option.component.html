@@ -1,0 +1,20 @@
+<form *ngIf="visibility"(ngSubmit)="onAction()" [formGroup]="form" class="main-container">
+  <h4>Enter the shipping option</h4>
+  <br>
+  <div class="form-group">
+    <label for="option">Select an option</label>
+    <select class="form-control" name="option" formControlName="option">
+        <option *ngFor="let option of shippingOption | objectKeys" [value]="option.key">
+            {{option.value}}
+        </option>
+      </select>
+      <div *ngIf="form.controls['option'].errors?.required">
+        required field.
+      </div>
+    </div>
+  <button class="btn btn-warning col-1 mr-2" (click) = "onAction(wizardAction[wizardAction.Prev])">Previous</button>
+  <button type="submit" class="btn btn-primary col-1"> Next </button>
+</form>
+              
+                  
+      

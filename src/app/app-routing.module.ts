@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ShippingLabelMakerComponent } from './features/shipping-label-maker/shipping-label-maker/shipping-label-maker.component';
-import { WizardComponentComponent } from './shared/wizard-component/wizard-component.component';
+import { LoginComponent } from './features/shipping-label-maker/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'home', component: ShippingLabelMakerComponent},
-  { path: 'wizard', component: WizardComponentComponent},
+  { path: 'home', component: ShippingLabelMakerComponent, canActivate: [ AuthGuard ]},
+  { path: 'login', component: LoginComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
